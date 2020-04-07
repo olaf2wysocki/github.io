@@ -2,64 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Hyperloop</title>
+  <title>Hyperloop (Munich - Berlin)</title>
   <script src="https://cesium.com/downloads/cesiumjs/releases/1.68/Build/Cesium/Cesium.js"></script>
   <link href="https://cesium.com/downloads/cesiumjs/releases/1.68/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
 </head>
 <body>
   <div id="cesiumContainer"></div>
-  <script>
-    Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJhZGVjYzY1Ni04YTFlLTQ3NjMtYjMwZC02YjdmY2ZjNTdmMTEiLCJpZCI6MjQ3MjcsInNjb3BlcyI6WyJhc3IiLCJnYyJdLCJpYXQiOjE1ODU2NjMzMTl9.tDY0vHStcjlbJk7Ertkp6ufLncW7lr7K9zqwUviD53U';
-    var viewer = new Cesium.Viewer('cesiumContainer', {
-        terrainProvider: Cesium.createWorldTerrain(),
-        shouldAnimate : true
-    });
-
-var scene = viewer.scene;
-var clock = viewer.clock;
-
-var entity;
-var positionProperty;
-
-var promise1 = Cesium.IonResource.fromAssetId(87734)
-    .then(function (resource) {
-        var entity = viewer.entities.add({
-            position: Cesium.Cartesian3.fromDegrees(10.985690, 47.420793),
-            model: {
-                uri: resource,
-                heightReference : Cesium.HeightReference.CLAMP_TO_GROUND,
-                minimumPixelSize : 1,
-                maximumScale : 0.25,
-                scale : 0.25,
-            }
-        });
-        
-    })
-    .otherwise(function (error) {
-        console.log(error);
-    });
-    
-viewer.zoomTo(entity);
-    
-var promise2 = Cesium.IonResource.fromAssetId(87809)
-    .then(function (resource) {
-        var entity = viewer.entities.add({
-            position: Cesium.Cartesian3.fromDegrees(10.985443, 47.421138),
-            model: {
-                uri: resource,
-                heightReference : Cesium.HeightReference.CLAMP_TO_GROUND,
-                minimumPixelSize : 128,
-                maximumScale : 100,
-                scale : 20,
-            }
-        });
-        viewer.trackedEntity = entity;
-    })
-    .otherwise(function (error) {
-        console.log(error);
-    });    
-
-    
-  </script>
+  <script src="script.js" ></script>
 </body>
 </html>
