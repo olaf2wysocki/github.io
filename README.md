@@ -1,10 +1,9 @@
 
 # Hyperloop Munich - Berlin route
-![hyperloop1](./screenshots/hyperloop.png)
 
 ![hyperloop2](./screenshots/pod.jpg)
 
-## This 3D visualisation represents draft view of the route Munich - Berlin.
+## Check draft view of the route Munich - Berlin!
    [Web-App](https://olaf2wysocki.github.io/) - 3D visualisation, web-app representing Munich-Berlin route
 
 ## Functionalities:
