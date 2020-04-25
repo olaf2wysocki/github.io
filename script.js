@@ -213,6 +213,7 @@ var buggyMoving = Cesium.IonResource.fromAssetId(87734)
         position : position,
         orientation : new Cesium.VelocityOrientationProperty(position)
     });
+	//enable this below to fix moving camera above the "buggy" object
 	//viewer.trackedEntity = entity;
 	
 	        //Add infobox to model
