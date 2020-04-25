@@ -130,7 +130,7 @@ lineEntity.description = '\
 <img\
   width="100%"\
   style="float:left; margin: 0 1em 1em 0;"\
-  src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Aerial_view_of_Berlin_%2832881394137%29.jpg/1200px-Aerial_view_of_Berlin_%2832881394137%29.jpg"/>\
+  src="./screenshots/pod.jpg"/>\
 <p>\
   Hyperloop route Munich - Berlin\
 </p>\
@@ -146,7 +146,7 @@ lineEntity.description = '\
   Source: \
   <a style="color: WHITE"\
     target="_blank"\
-    href="https://tumhyperloop.de/">TUM Hyperloop</a>\
+    href="https://www.flickr.com/photos/148755431@N04/43573944782/">TUM Hyperloop</a>\
 </p>';
 
 
