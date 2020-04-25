@@ -13,7 +13,7 @@ Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOi
 //some nicer lights
 viewer.scene.globe.enableLighting = true;
 // Create an initial camera view
-var initialPosition = new Cesium.Cartesian3.fromDegrees(11.666129, 48.259988, 1500.0);
+var initialPosition = new Cesium.Cartesian3.fromDegrees(11.666129, 48.259988, 2500.0);
 var initialOrientation = new Cesium.HeadingPitchRoll.fromDegrees(7.1077496389876024807, -41.987223091598949054, 0.025883251314954971306);
 var homeCameraView = {
     destination : initialPosition,
