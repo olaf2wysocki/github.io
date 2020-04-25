@@ -13,7 +13,7 @@ Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOi
 //some nicer lights
 viewer.scene.globe.enableLighting = true;
 // Create an initial camera view
-var initialPosition = new Cesium.Cartesian3.fromDegrees(11.666129, 48.259988, 2500.0);
+var initialPosition = new Cesium.Cartesian3.fromDegrees(11.666129, 48.259988, 1500.0);
 var initialOrientation = new Cesium.HeadingPitchRoll.fromDegrees(7.1077496389876024807, -41.987223091598949054, 0.025883251314954971306);
 var homeCameraView = {
     destination : initialPosition,
@@ -165,7 +165,7 @@ viewer.clock.startTime = start.clone();
 viewer.clock.stopTime = stop.clone();
 viewer.clock.currentTime = start.clone();
 viewer.clock.clockRange = Cesium.ClockRange.LOOP_STOP; //Loop at the end
-viewer.clock.multiplier = 0.05;
+viewer.clock.multiplier = 0.05; //change speed of the model
 viewer.clock.shouldAnimate = true;
 
 //Set timeline to simulation bounds
@@ -213,7 +213,7 @@ var buggyMoving = Cesium.IonResource.fromAssetId(87734)
         position : position,
         orientation : new Cesium.VelocityOrientationProperty(position)
     });
-	viewer.trackedEntity = entity;
+	//viewer.trackedEntity = entity;
 	
 	        //Add infobox to model
             entity.name = 'Buggy';
