@@ -9,7 +9,7 @@ Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOi
       
     });
 
-//--View--//
+//--Viewer--//
 //some nicer lights
 viewer.scene.globe.enableLighting = true;
 // Create an initial camera view
@@ -39,16 +39,11 @@ viewer.homeButton.viewModel.command.beforeExecute.addEventListener(function (e) 
 
 
 //--Locations--//
-//location of billboard, Hyperloop
-var positionTUM = Cesium.Cartesian3.fromDegrees(11.668383,48.267483);
+//location of the Hyperloop building
 var latitudeTUM = 11.668383;
 var longitudeTUM = 48.267483;
  
-//location of buggy
-var latitude1 = 11.669067;
-var longitude1 = 48.267406;
-
-//location of cesium guy
+//location of the "cesium guy"
 var latitude2 = 11.668560;
 var longitude2 = 48.267643;
 
@@ -56,61 +51,26 @@ var longitude2 = 48.267643;
 var latitudeBer = 13.406181;
 var longitudeBer = 52.518994;
 
-/* 
-orientation
-*/
-var positionGuy = Cesium.Cartesian3.fromDegrees(11.668560, 48.267643);
+//--Orientation--//
+var positionGuy = Cesium.Cartesian3.fromDegrees(latitude2, longitude2);
 var heading = Cesium.Math.toRadians(-75.0);
 var pitch = Cesium.Math.toRadians(0.0);
 var roll = Cesium.Math.toRadians(0.0);
 var orientationGuy = Cesium.Transforms.headingPitchRollQuaternion(positionGuy, new Cesium.HeadingPitchRoll(heading, pitch, roll));
 
-//--Models---//
+//--Static 3D Objects---//
 //function to retrieve color
 function getColor(colorName, alpha) {
     var color = Cesium.Color[colorName.toUpperCase()];
     return Cesium.Color.fromAlpha(color, parseFloat(alpha));
 }
-//some colors and transparency
+//some more colors and transparency
 var viewModel = {
   color: 'Red',
   alpha: 0.6
 }
 
-/*
-//buggy model
-var buggy = Cesium.IonResource.fromAssetId(87734)
-    .then(function (resource) {
-        var buggyentity = viewer.entities.add({
-            position: Cesium.Cartesian3.fromDegrees(latitude1, longitude1),
-            orientation : orientationGuy,
-            model: {
-                uri: resource,
-                heightReference : Cesium.HeightReference.CLAMP_TO_GROUND,
-                minimumPixelSize : 1,
-                maximumScale : 0.25,
-                scale : 0.25,
-            }
-        });
-            //Add infobox to model
-            var cartographicPosition = Cesium.Cartographic.fromCartesian(entity.position.getValue(Cesium.JulianDate.now()));
-            var longitude = Cesium.Math.toDegrees(cartographicPosition.longitude);
-            var latitude = Cesium.Math.toDegrees(cartographicPosition.latitude);
-
-            var description = '<table class="cesium-infoBox-defaultTable cesium-infoBox-defaultTable-lighter"><tbody>' +
-                '<tr><th>' + "Longitude" + '</th><td>' + longitude.toFixed(5) + '</td></tr>' +
-                '<tr><th>' + "Latitude" + '</th><td>' + latitude.toFixed(5) + '</td></tr>' +
-                '</tbody></table>';
-            buggyentity.description = description;
-            buggyentity.name = 'Buggy';
-    })
-    .otherwise(function (error) {
-        console.log(error);
-    });
-    
-*/
-
-//walking man from Cesium, fixed to position
+//walking man from Cesium, fixed to position, hosted on Cesium ion
 var cesiumGuy = Cesium.IonResource.fromAssetId(87809)
     .then(function (resource) {
         var cesiumGuyentity = viewer.entities.add({
@@ -125,7 +85,8 @@ var cesiumGuy = Cesium.IonResource.fromAssetId(87809)
                 color : getColor(viewModel.color, viewModel.alpha)
             }
         });
-      //viewer.trackedEntity = entity;
+      //enable this below to fix camera above the "cesium guy" object
+	  //viewer.trackedEntity = entity;
 
       //Get Location of the entity and pass it to infobox
             var cartographicPosition = Cesium.Cartographic.fromCartesian(entity.position.getValue(Cesium.JulianDate.now()));
@@ -190,7 +151,7 @@ lineEntity.description = '\
 
 
 
-//--Model move--//
+//--Moving 3D Objects--//
 
 //Set the random number seed for consistent results.
 Cesium.Math.setRandomNumberSeed(3);
@@ -233,7 +194,7 @@ var position = new Cesium.SampledPositionProperty();
 position.addSample(start, pos1);
 position.addSample(stop, pos2);
 
-//add vector object to move
+//add glTF object, arbitrary vehicle hosted on Cesium ion
 var buggyMoving = Cesium.IonResource.fromAssetId(87734)
     .then(function (resource) {
     var entity = viewer.entities.add({
